@@ -1,9 +1,20 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "Rectangle.h"
 
+
 static void Rectangle_Init(Rectangle*);
+
+static float perimetre(Rectangle *This);
+static float aire(Rectangle *This);
+static int isCarre(Rectangle *This);
+static char* afficherRectangle(Rectangle *This);
+
+static float get_longueur(Rectangle *This);
+static int set_longueur(Rectangle *This,float largeur);
+static float get_largeur(Rectangle *This);
+static int set_largeur(Rectangle *This,float largeur);
 
 /******************************************************************************/
 Rectangle* New_Rectangle(float longeur,float largeur)

@@ -19,11 +19,8 @@ typedef struct Batiment
 
 Batiment* New_Batiment(size_t nbarg,...);
 
-static char* to_string( Batiment *This);
-
 char* get_adresse(Batiment *This);
 int set_adresse(Batiment *This,char* adresse);
-
 
 #ifdef __cplusplus
 }

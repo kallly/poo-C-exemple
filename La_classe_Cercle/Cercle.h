@@ -27,16 +27,6 @@ typedef struct Cercle
 
 Cercle* New_Cercle(int x,int y,float r);
 
-static char* Cercle_afficher(Cercle *This);
-static int appartient(Cercle *This,Point *p);
-static float getSurface(Cercle *This);
-static float getPerimetre(Cercle *This);
-
-static float get_r(Cercle *This);
-static int set_r(Cercle *This,float centre);
-static Point* get_centre(Cercle *This);
-static int set_centre(Cercle *This,Point* centre);
-
 #ifdef __cplusplus
 }
 #endif

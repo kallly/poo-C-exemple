@@ -1,12 +1,17 @@
 #include<stdlib.h>
 #include<stdio.h>
-#include<string.h>
 
 #include "Livre.h"
 
-
 static void Livre_Init(Livre*);
  
+static char* get_titre(Livre *This);
+static int set_titre(Livre *This,char* titre);
+static char* get_auteur(Livre *This);
+static int set_auteur(Livre *This,char* auteur);
+static float get_prix(Livre *This);
+static int set_prix(Livre *This,float prix);
+static char* afficher(Livre *This);
 
 /******************************************************************************/
 Livre* New_Livre(char* titre,char* auteur,int prix)

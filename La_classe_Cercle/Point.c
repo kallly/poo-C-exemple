@@ -5,6 +5,13 @@
 
 static void Point_Init(Point*);
 
+static char* afficher( Point *This);
+
+static int get_x(Point *This);
+static int set_x(Point *This,int x);
+static int get_y(Point *This);
+static int set_y(Point *This,int y);
+
 /******************************************************************************/
 Point* New_Point(int x,int y)
 {
