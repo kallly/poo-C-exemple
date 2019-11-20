@@ -25,11 +25,6 @@ typedef struct Maison
 
 Maison* New_Maison(size_t nbarg,...);
 
-static unsigned int get_NbPieces(Maison *This);
-static int set_NbPieces(Maison *This,unsigned int NbPieces);
-
-static char* Maison_to_string( Maison *This);
-
 #ifdef __cplusplus
 }
 #endif

@@ -25,15 +25,6 @@ typedef struct Complexe
 
 Complexe* New_Complexe(float reelle,float imaginaire);
 
-static Complexe* plus(Complexe *This,Complexe *complexe2);
-static Complexe* moins(Complexe *This,Complexe *complexe2);
-static char* afficher(Complexe *This);
-
-static float get_reelle(Complexe *This);
-static int set_reelle(Complexe *This,float reelle);
-static float get_imaginaire(Complexe *This);
-static int set_imaginaire(Complexe *This,float imaginaire);
-
 #ifdef __cplusplus
 }
 #endif

@@ -25,14 +25,6 @@ typedef struct Livre
  
 Livre* New_Livre();
 
-static char* get_titre(Livre *This);
-static int set_titre(Livre *This,char* titre);
-static char* get_auteur(Livre *This);
-static int set_auteur(Livre *This,char* auteur);
-static float get_prix(Livre *This);
-static int set_prix(Livre *This,float prix);
-static char* afficher(Livre *This);
-
 #ifdef __cplusplus
 }
 #endif

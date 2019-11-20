@@ -23,12 +23,7 @@ typedef struct Point
  
 Point* New_Point(float abscisse,float ordonne);
 
-static float get_abscisse(Point *This);
-static int set_abscisse(Point *This,float abscisse);
-static float get_ordonne(Point *This);
-static int set_ordonne(Point *This,float ordonne);
 
-static float norme(Point *This);
 
 #ifdef __cplusplus
 }

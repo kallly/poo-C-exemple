@@ -6,6 +6,8 @@
 
 static void Batiment_Init(Batiment*);
 
+static char* to_string( Batiment *This);
+
 /******************************************************************************/
 Batiment* New_Batiment(size_t nbarg,...)
 {

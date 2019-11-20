@@ -1,10 +1,15 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <stdarg.h>
 
 #include "Maison.h"
 
 static void Maison_Init(Maison*);
+
+static unsigned int get_NbPieces(Maison *This);
+static int set_NbPieces(Maison *This,unsigned int NbPieces);
+
+static char* Maison_to_string( Maison *This);
 
 /******************************************************************************/
 Maison* New_Maison(size_t nbarg,...)

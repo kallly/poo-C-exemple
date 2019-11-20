@@ -3,7 +3,7 @@
  
 #include "Rectangle.h"
 
-//gcc -o Rectangle -c Rectangle.c ; gcc main.c Rectangle; ./a.out  100 30
+/*Rectangle; ./a.out  100 30*/
 
 
 int main(int argc,const char* argv[])
