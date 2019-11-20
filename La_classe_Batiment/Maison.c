@@ -35,6 +35,8 @@ static void Maison_Init(Maison *This)
     This->get_adresse=(void*)get_adresse;
     This->set_adresse=(void*)set_adresse;
 
+    
+    This->set_adresse(This, " " );
     This->NbPieces=0;
 }
 

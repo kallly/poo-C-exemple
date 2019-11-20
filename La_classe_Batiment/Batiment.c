@@ -29,6 +29,9 @@ static void Batiment_Init(Batiment *This)
 
     This->get_adresse=get_adresse;
     This->set_adresse=set_adresse;
+
+    This->set_adresse(This, " " );
+
 }
 
 /******************************************************************************/
@@ -40,7 +43,6 @@ char* get_adresse(Batiment *This)
 /******************************************************************************/
 int set_adresse(Batiment *This,char* adresse)
 {
-    //if(This->adresse != NULL) free(This->adresse);
     This->adresse = malloc(sizeof(adresse));
     This->adresse = adresse;
     return 1;
