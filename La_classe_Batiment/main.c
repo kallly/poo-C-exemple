@@ -7,12 +7,12 @@
 
 int main(int argc,const char* argv[])
 {
-    Maison *Maison;
+    Maison *maison;
     
-    if(argc > 2)Maison = New_Maison(2, argv[1], atoi(argv[2]) );
-    else Maison = New_Maison(0);
+    if(argc > 2)maison = New_Maison(2, argv[1], atoi(argv[2]) );
+    else maison = New_Maison(0);
 
-    printf("\n%s\n",Maison->to_string(Maison));
+    printf("\n%s\n",maison->to_string(maison));
 
 #ifdef __WIN32__s
         system("PAUSE");

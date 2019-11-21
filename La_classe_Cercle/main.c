@@ -7,18 +7,18 @@
 
 int main(int argc,const char* argv[])
 {
-    Cercle *Cercle;
+    Cercle *cercle;
     
-    if(argc > 3)Cercle = New_Cercle(atoi(argv[1]),atoi(argv[2]),atoi(argv[3]));
-    else Cercle = New_Cercle(2,4,5);
+    if(argc > 3)cercle = New_Cercle(atoi(argv[1]),atoi(argv[2]),atoi(argv[3]));
+    else cercle = New_Cercle(2,4,5);
 
-    printf("\n%s\n",Cercle->afficher(Cercle));
-    printf("Le périmétre est : %0.2f\n",Cercle->getPerimetre(Cercle));
-    printf("La surface est : %0.2f\n",Cercle->getSurface(Cercle));
+    printf("\n%s\n",cercle->afficher(cercle));
+    printf("Le périmétre est : %0.2f\n",cercle->getPerimetre(cercle));
+    printf("La surface est : %0.2f\n",cercle->getSurface(cercle));
     
     Point *p=New_Point(4,0);
     printf("%s\n",p->afficher(p));
-    printf("%s\n", Cercle->appartient(Cercle,p)?"Le point appartient au cercle":"Le point n'appartient pas au cercle" );
+    printf("%s\n", cercle->appartient(cercle,p)?"Le point appartient au cercle":"Le point n'appartient pas au cercle" );
 
 #ifdef __WIN32__
         system("PAUSE");

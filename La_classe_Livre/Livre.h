@@ -5,7 +5,7 @@
   extern "C" {
 #endif
  
-/*  Structure représantant l'objet point. */
+/*  Structure représantant l'objet Livre. */
 typedef struct Livre
         {
           char*     (*get_titre)       (struct Livre*);

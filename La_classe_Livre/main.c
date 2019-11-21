@@ -8,12 +8,12 @@
 
 int main(int argc,const char* argv[])
 {
-    Livre *Livre;
+    Livre *livre;
     
-    if(argc > 3)Livre = New_Livre(argv[1],argv[2],atoi(argv[3]));
-    else Livre = New_Livre("Programmer en C","Claude Delannoy",350);
+    if(argc > 3)livre = New_Livre(argv[1],argv[2],atoi(argv[3]));
+    else livre = New_Livre("Programmer en C","Claude Delannoy",350);
 
-    printf("%s",Livre->afficher(Livre));
+    printf("%s",livre->afficher(livre));
 
 #ifdef __WIN32__
         system("PAUSE");
