@@ -19,7 +19,7 @@ static int set_tel(Client *This,const char* tel);
 static char* afficher( Client *This);
 
 /******************************************************************************/
-Client* New_Client(char *CIN,char *nom,char *prenom,char *tel)
+Client* New_Client(const char *CIN,const char *nom,const char *prenom,const char *tel)
 {
     Client *This = malloc(sizeof(Client));
     if(!This) return NULL;
@@ -82,7 +82,7 @@ static char* get_prenom(Client *This)
 
 /******************************************************************************/
 static int set_prenom(Client *This,const char* prenom)
-{
+{      
        This->prenom = malloc(sizeof(prenom));
        strcpy(This->prenom,prenom);
        return 1;

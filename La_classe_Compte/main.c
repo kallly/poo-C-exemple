@@ -3,7 +3,7 @@
  
 #include "Compte.h"
 
-//      ./compte 20 1 ATA 300
+//      ./compte EE111222 Salim Omar 06111111
 
 
 int main(int argc,const char* argv[])

@@ -1,6 +1,6 @@
 #include<stdlib.h>
 #include<stdio.h>
-
+#include <string.h>
 #include "Article.h"
 
 static void Article_Init(Article*);
@@ -8,7 +8,7 @@ static void Article_Init(Article*);
 static int get_reference(Article *This);
 static int set_reference(Article *This,int reference);
 static char* get_designation(Article *This);
-static int set_designation(Article *This,char *designation);
+static int set_designation(Article *This,const char *designation);
 static float get_prixHT(Article *This);
 static int set_prixHT(Article *This,float prixHT);
 static float get_tauxTVA(Article *This);
@@ -18,7 +18,7 @@ static char* afficherArticle( Article *This);
 static float calculerPrixTTC(Article *This);
 
 /******************************************************************************/
-Article* New_Article(float tauxTVA,int reference,char* designation,float prixHT)
+Article* New_Article(float tauxTVA,int reference,const char* designation,float prixHT)
 {
     Article *This = malloc(sizeof(Article));
     if(!This) return NULL;
@@ -66,9 +66,10 @@ static char* get_designation(Article *This)
 }
 
 /******************************************************************************/
-static int set_designation(Article *This,char *designation)
+static int set_designation(Article *This,const char *designation)
 {
-       This->designation = designation;
+       This->designation = malloc(sizeof(designation));
+       strcpy(This->designation,designation);
        return 1;
 }
 

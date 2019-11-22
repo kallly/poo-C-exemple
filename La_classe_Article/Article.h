@@ -14,7 +14,7 @@ typedef struct Article
         int		    (*get_reference)(struct Article*);
         int			(*set_reference)(struct Article*,int);
         char*		(*get_deignation)(struct Article*);
-        int			(*set_deignation)(struct Article*,char*);
+        int			(*set_deignation)(struct Article*,const char*);
         float		(*get_prixHT)(struct Article*);
         int			(*set_prixHT)(struct Article*,float);
         float		(*get_tauxTVA)(struct Article*);
@@ -27,7 +27,7 @@ typedef struct Article
     } Article ;
 
 
-Article* New_Article(float tauxTVA,int reference,char* designation,float prixHT);
+Article* New_Article(float tauxTVA,int reference,const char* designation,float prixHT);
 
 #ifdef __cplusplus
 }

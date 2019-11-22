@@ -1,17 +1,17 @@
 CC=gcc
-CFLAGS= -Wall -ansi -std=c11
-LDFLAGS=
-EXEC=batiment
+CFLAGS= -Wall -ansi  -pedantic -std=c11
+LDFLAGS= -lm
+EXEC=vecteur
 
 all: $(EXEC) clean
 
-batiment: Batiment.o Maison.o main.o
+vecteur: Vecteur2D.o Vecteur3D.o main.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS)
 
-main.o: Batiment.h Maison.h
+main.o:	Vecteur2D.h Vecteur3D.o
 
 clean:
 	rm -rf *.o

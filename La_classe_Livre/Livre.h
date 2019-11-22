@@ -9,9 +9,9 @@
 typedef struct Livre
         {
           char*     (*get_titre)       (struct Livre*);
-          int       (*set_titre)       (struct Livre*,char*);
+          int       (*set_titre)       (struct Livre*,const char*);
           char*     (*get_auteur)      (struct Livre*);
-          int       (*set_auteur)      (struct Livre*,char*);
+          int       (*set_auteur)      (struct Livre*,const char*);
           float     (*get_prix)        (struct Livre*);
           int       (*set_prix)        (struct Livre*,float);
           char*     (*afficher)        (struct Livre*);
@@ -23,7 +23,7 @@ typedef struct Livre
         } Livre ;
  
  
-Livre* New_Livre();
+Livre* New_Livre(const char* titre,const char* auteur,int prix);
 
 #ifdef __cplusplus
 }

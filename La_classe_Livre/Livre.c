@@ -1,20 +1,21 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 #include "Livre.h"
 
 static void Livre_Init(Livre*);
  
 static char* get_titre(Livre *This);
-static int set_titre(Livre *This,char* titre);
+static int set_titre(Livre *This,const char* titre);
 static char* get_auteur(Livre *This);
-static int set_auteur(Livre *This,char* auteur);
+static int set_auteur(Livre *This,const char* auteur);
 static float get_prix(Livre *This);
 static int set_prix(Livre *This,float prix);
 static char* afficher(Livre *This);
 
 /******************************************************************************/
-Livre* New_Livre(char* titre,char* auteur,int prix)
+Livre* New_Livre(const char* titre,const char* auteur,int prix)
 {
        Livre *This = malloc(sizeof(Livre));
        if(!This) return NULL;
@@ -60,9 +61,10 @@ static char* get_titre(Livre *This)
 }
 
 /******************************************************************************/
-static int set_titre(Livre *This,char* titre)
+static int set_titre(Livre *This,const char* titre)
 {
-       This->titre = titre;
+       This->titre=malloc(sizeof(titre));
+       strcpy(This->titre,titre);
        return 1;
 }
 
@@ -73,9 +75,10 @@ static char* get_auteur(Livre *This)
 }
 
 /******************************************************************************/
-static int set_auteur(Livre *This,char* auteur)
+static int set_auteur(Livre *This,const char* auteur)
 {
-       This->auteur = auteur;
+       This->auteur=malloc(sizeof(auteur));
+       strcpy(This->auteur,auteur);
        return 1;
 }
 

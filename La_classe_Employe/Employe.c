@@ -1,6 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include <time.h>
+#include <string.h>
 
 #include "Employe.h"
 
@@ -11,9 +12,9 @@ static int set_matricule(Employe *This,int matricule);
 static float get_salaire(Employe *This);
 static int set_salaire(Employe *This,float salaire);
 static char* get_nom(Employe *This);
-static int set_nom(Employe *This,char* nom);
+static int set_nom(Employe *This,const char* nom);
 static char* get_prenom(Employe *This);
-static int set_prenom(Employe *This,char* pernom);
+static int set_prenom(Employe *This,const char* pernom);
 static Date get_dateNaissance(Employe *This);
 static int set_dateNaissance(Employe *This,Date dateNaissance);
 static Date get_dateEmbauche(Employe *This);
@@ -25,7 +26,7 @@ static int age(Employe *This);
 static char* afficherEmploye( Employe *This);
 
 /******************************************************************************/
-Employe* New_Employe(int matricule,char *nom,char *prenom,Date naissance,Date embauche,float salaire)
+Employe* New_Employe(int matricule,const char *nom,const char *prenom,Date naissance,Date embauche,float salaire)
 {
     Employe *This = malloc(sizeof(Employe));
     if(!This) return NULL;
@@ -42,8 +43,8 @@ Employe* New_Employe(int matricule,char *nom,char *prenom,Date naissance,Date em
 /******************************************************************************/
 static void Employe_Init(Employe *This)
 {      
-	This->augmentationDuSalaire=augmentationDuSalaire;
-	This->anciennete=anciennete;
+    This->augmentationDuSalaire=augmentationDuSalaire;
+    This->anciennete=anciennete;
     This->age=age;
     This->afficherEmploye=afficherEmploye;
 
@@ -60,13 +61,13 @@ static void Employe_Init(Employe *This)
     This->set_nom=set_nom;
     This->set_prenom=set_prenom;
     
-    This->set_dateEmbauche(This, (Date){0,0,0} );
+    This->set_dateEmbauche(This, (Date){0,0,2010} );
     This->set_dateNaissance(This, (Date){0,0,2000} );
     This->matricule=0;
     This->nom=malloc(sizeof(char));
-    This->nom=" ";
+    strcpy(This->nom," ");
     This->prenom=malloc(sizeof(char));
-    This->prenom=" ";
+    strcpy(This->prenom," ");
     
 }
 
@@ -103,9 +104,10 @@ static char* get_nom(Employe *This)
 }
 
 /******************************************************************************/
-static int set_nom(Employe *This,char* nom)
+static int set_nom(Employe *This,const char* nom)
 {
-       This->nom = nom;
+       This->nom=malloc(sizeof(nom));
+       strcpy(This->nom,nom);
        return 1;
 }
 /******************************************************************************/
@@ -115,9 +117,10 @@ static char* get_prenom(Employe *This)
 }
 
 /******************************************************************************/
-static int set_prenom(Employe *This,char* prenom)
+static int set_prenom(Employe *This,const char* prenom)
 {
-       This->prenom = prenom;
+       This->prenom=malloc(sizeof(prenom));
+       strcpy(This->prenom,prenom);
        return 1;
 }
 
