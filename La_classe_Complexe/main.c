@@ -8,18 +8,18 @@
 
 int main(int argc,const char* argv[])
 {
-    Complexe *Complexe;
+    Complexe *complexe;
     
-    if(argc > 2)Complexe = New_Complexe(atoi(argv[1]),atoi(argv[2]));
-    else Complexe = New_Complexe(2,4);
+    if(argc > 2)complexe = New_Complexe(atoi(argv[1]),atoi(argv[2]));
+    else complexe = New_Complexe(2,4);
 
-    printf("\nnombre Complexe: %s\n",Complexe->afficher(Complexe));
+    printf("\nnombre Complexe: %s\n",complexe->afficher(complexe));
 
-    Complexe = Complexe->plus(Complexe,New_Complexe(4,5));
-    printf("\nnombre Complexe: %s\n",Complexe->afficher(Complexe));
+    complexe = complexe->plus(complexe,New_Complexe(4,5));
+    printf("\nnombre Complexe: %s\n",complexe->afficher(complexe));
 
-    Complexe = Complexe->moins(Complexe,New_Complexe(4,5));
-    printf("\nnombre Complexe: %s\n",Complexe->afficher(Complexe));
+    complexe = complexe->moins(complexe,New_Complexe(4,5));
+    printf("\nnombre Complexe: %s\n",complexe->afficher(complexe));
 
 
 #ifdef __WIN32__

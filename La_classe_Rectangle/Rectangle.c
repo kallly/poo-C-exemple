@@ -97,7 +97,7 @@ static char* afficherRectangle(Rectangle *This)
        snprintf(string, size, "Longueur : %0.2f- Largeur : %0.2f- Périmétre : %0.2f- Aire : %0.2f- %s",
               This->get_longueur(This),This->get_largeur(This),
               This->perimetre(This),This->aire(This),
-              This->isCarre?"Il s'agit d'un carré" : "Il ne s'agit pas d'un carré"
+              This->isCarre(This)?"Il s'agit d'un carré" : "Il ne s'agit pas d'un carré"
               );
        
        return string;

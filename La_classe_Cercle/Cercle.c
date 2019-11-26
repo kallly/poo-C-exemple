@@ -102,9 +102,9 @@ static char* Cercle_afficher( Cercle *This)
        size_t size = sizeof(char) * 20;
        char* string = (char*)malloc(size);
        
-       snprintf(string, size, "CERCLE(%d,%d,%0.2f)", This->get_centre(This)->get_x(This->get_centre(This)),
-                                                       This->get_centre(This)->get_y(This->get_centre(This))
-                                                       ,This->get_r(This) );
+       snprintf(string, size, "CERCLE(%d,%d,%0.2f)", This->get_centre(This)->get_x(This->get_centre(This))
+                                                        ,This->get_centre(This)->get_y(This->get_centre(This))
+                                                        ,This->get_r(This) );
        
        return string;
 }
