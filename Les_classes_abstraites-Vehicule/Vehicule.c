@@ -38,7 +38,8 @@ const char* get_matricule(Vehicule *This)
 /******************************************************************************/
 int set_matricule(Vehicule *This,const char* matricule)
 {
-       This->matricule = malloc(sizeof(matricule));
+       if(This->matricule!=NULL) free(This->matricule);
+       This->matricule = malloc(sizeof(char)*(strlen(matricule)+1));
        strcpy(This->matricule,matricule);
        return 1;
 }
@@ -72,7 +73,9 @@ int set_prix(Vehicule *This,float prix)
 /******************************************************************************/
 char* toString( Vehicule *This)
 {
-       size_t size = sizeof(This->get_matricule(This)) + sizeof(char)*100;
+       size_t size = ( strlen(This->get_matricule(This)) 
+                     + 100
+                     )* sizeof(char);
        char* string = (char*)malloc(size);
        
        snprintf(string, size, "Matricule: %s\nAnnee model: %d\nPrix: %0.2f",

@@ -1,5 +1,5 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 #include "Employe.h"
@@ -36,6 +36,10 @@ static void Employe_Init(Employe *This)
        This->set_nom=set_nom;
        This->set_prenom=set_prenom;
        This->set_salaire=set_salaire;
+
+       This->matricule=NULL;
+       This->nom=NULL;
+       This->prenom=NULL;
 }
 
 /******************************************************************************/
@@ -47,7 +51,8 @@ char* get_matricule(Employe *This)
 /******************************************************************************/
 int set_matricule(Employe *This,char* matricule)
 {
-       This->matricule = malloc(sizeof(matricule));
+       if(This->matricule!=NULL) free(This->matricule);
+       This->matricule = malloc(sizeof(char)*(strlen(matricule)+1));
        strcpy(This->matricule,matricule);
        return 1;
 }
@@ -61,7 +66,8 @@ char* get_nom(Employe *This)
 /******************************************************************************/
 int set_nom(Employe *This,char* nom)
 {
-       This->nom = malloc(sizeof(nom));
+       if(This->nom!=NULL) free(This->nom);
+       This->nom = malloc(sizeof(char)*(strlen(nom)+1));
        strcpy(This->nom,nom);
        return 1;
 }
@@ -75,7 +81,8 @@ char* get_prenom(Employe *This)
 /******************************************************************************/
 int set_prenom(Employe *This,char* prenom)
 {
-       This->prenom = malloc(sizeof(prenom));
+       if(This->prenom!=NULL) free(This->prenom);
+       This->prenom = malloc(sizeof(char)*(strlen(prenom)+1));
        strcpy(This->prenom,prenom);
        return 1;
 }

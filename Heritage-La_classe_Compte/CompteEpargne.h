@@ -19,15 +19,17 @@ typedef struct CompteEpargne
         Client*		(*get_client)(struct CompteEpargne*);
         int			(*set_client)(struct CompteEpargne*,Client*);
         
-        float		(*get_tauxInteret)(struct CompteEpargne*);
-        int			(*set_tauxInteret)(struct CompteEpargne*,float);
-
-        int         (*calculInteret)(struct CompteEpargne*);
+        
         
 
         float solde;
         int id;
         Client* client;
+        
+        float		(*get_tauxInteret)(struct CompteEpargne*);
+        int			(*set_tauxInteret)(struct CompteEpargne*,float);
+
+        int         (*calculInteret)(struct CompteEpargne*);
 
         float tauxInteret;
     } CompteEpargne ;

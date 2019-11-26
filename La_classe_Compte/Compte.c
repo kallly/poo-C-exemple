@@ -1,6 +1,7 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <stdarg.h>
+#include <string.h>
 
 #include "Compte.h"
 
@@ -121,7 +122,7 @@ static int debiter(Compte *This,float val,size_t nbarg,...)
 /******************************************************************************/
 static char* afficher( Compte *This)
 {
-       size_t size = sizeof(This->get_client(This)->afficher(This->get_client(This))) + sizeof(char)*150;
+       size_t size = ( strlen(This->get_client(This)->afficher(This->get_client(This))) + 1 + 150)* sizeof(char);
        char* string = (char*)malloc(size);
        
        snprintf(string, size, "Numéro de Compte: %d\nSolde de compte: %0.2f\nPropriétaire du compte:\n%s",

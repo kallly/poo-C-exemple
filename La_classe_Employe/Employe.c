@@ -1,5 +1,5 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <time.h>
 #include <string.h>
 
@@ -63,11 +63,9 @@ static void Employe_Init(Employe *This)
     
     This->set_dateEmbauche(This, (Date){0,0,2010} );
     This->set_dateNaissance(This, (Date){0,0,2000} );
-    This->matricule=0;
-    This->nom=malloc(sizeof(char));
-    strcpy(This->nom," ");
-    This->prenom=malloc(sizeof(char));
-    strcpy(This->prenom," ");
+
+    This->nom=NULL;
+    This->prenom=NULL;
     
 }
 
@@ -106,7 +104,7 @@ static char* get_nom(Employe *This)
 /******************************************************************************/
 static int set_nom(Employe *This,const char* nom)
 {
-       This->nom=malloc(sizeof(nom));
+       This->nom=malloc(sizeof(char)*(strlen(nom)+1));
        strcpy(This->nom,nom);
        return 1;
 }
@@ -119,7 +117,8 @@ static char* get_prenom(Employe *This)
 /******************************************************************************/
 static int set_prenom(Employe *This,const char* prenom)
 {
-       This->prenom=malloc(sizeof(prenom));
+       if(This->prenom != NULL)free(This->prenom);
+       This->prenom=malloc(sizeof(char)*(strlen(prenom)+1));
        strcpy(This->prenom,prenom);
        return 1;
 }
@@ -182,7 +181,10 @@ static int augmentationDuSalaire(Employe *This)
 /******************************************************************************/
 static char* afficherEmploye(Employe *This)
 {
-       size_t size = sizeof(This->get_nom(This)) + sizeof(This->get_prenom(This)) + sizeof(char)*100;
+       size_t size = ( strlen(This->get_nom(This)) + 1 
+                     + strlen(This->get_prenom(This)) +1
+                     + 100
+                     )* sizeof(char);
        char* string = (char*)malloc(size);
        
        snprintf(string, size, 
@@ -191,7 +193,7 @@ static char* afficherEmploye(Employe *This)
             This->get_nom(This),
             This->get_prenom(This),
             This->age(This),
-			This->anciennete(This),
+	       This->anciennete(This),
             This->get_salaire(This)
        );
        

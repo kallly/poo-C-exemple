@@ -1,5 +1,5 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 #include "Voiture.h"
@@ -42,8 +42,8 @@ static char* demarrer( Voiture *This)
 {
 
     char* src="Voiture demarrer";
-    char* string = (char*)malloc(sizeof(src));
     
+    char* string = (char*)malloc(sizeof(char)*(strlen(src)+1));
     strcpy(string,src);
 
     return string;
@@ -53,7 +53,7 @@ static char* demarrer( Voiture *This)
 static char* accelerer( Voiture *This)
 {
     char* src="Voiture accelerer";
-    char* string = (char*)malloc(sizeof(src));
+    char* string = (char*)malloc(sizeof(char)*(strlen(src)+1));
     
     strcpy(string,src);
        

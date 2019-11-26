@@ -105,11 +105,12 @@ static int set_tel(Client *This,const char* tel)
 /******************************************************************************/
 static char* afficher( Client *This)
 {
-       size_t size = sizeof(This->get_CIN(This)) 
-                        + sizeof(This->get_nom(This)) 
-                        + sizeof(This->get_prenom(This)) 
-                        + sizeof(This->get_tel(This)) 
-                        + sizeof(char)*50;
+       size_t size = ( strlen(This->get_CIN(This)) + 1
+                     + strlen(This->get_nom(This)) + 1
+                     + strlen(This->get_prenom(This)) + 1
+                     + strlen(This->get_tel(This)) + 1
+                     + 150
+                     )* sizeof(char);
 
        char* string = (char*)malloc(size);
        

@@ -42,7 +42,7 @@ static char* demarrer( Camion *This)
 {
 
     char* src="Camion demarrer";
-    char* string = (char*)malloc(sizeof(src));
+    char* string = (char*)malloc(sizeof(char)*(strlen(src)+1));
     
     strcpy(string,src);
 
@@ -53,7 +53,7 @@ static char* demarrer( Camion *This)
 static char* accelerer( Camion *This)
 {
     char* src="Camion accelerer";
-    char* string = (char*)malloc(sizeof(src));
+    char* string = (char*)malloc(sizeof(char)*(strlen(src)+1));
     
     strcpy(string,src);
        

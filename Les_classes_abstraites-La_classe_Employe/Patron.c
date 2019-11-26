@@ -1,5 +1,6 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 #include "Patron.h"
 
@@ -42,11 +43,12 @@ static void Patron_Init(Patron *This)
 /******************************************************************************/
 static char* toString( Employe *This)
 {
-          size_t size = sizeof(This->get_matricule(This)) 
-                        + sizeof(This->get_matricule(This)) 
-                        + sizeof(This->get_matricule(This)) 
-                        + sizeof(This->get_prenom(This))
-                        + sizeof(char)*100;
+          size_t size = ( strlen(This->get_matricule(This)) 
+                        + strlen(This->get_matricule(This)) 
+                        + strlen(This->get_matricule(This)) 
+                        + strlen(This->get_prenom(This))
+                        + 100
+                        )* sizeof(char);
           char* string = (char*)malloc(size);
           
           snprintf(string, size, "Patron\nMatricule: %s\nNom: %s\nPrenom: %s\nDate de naissance: %d/%d/%d\nSalaire: %0.2f",

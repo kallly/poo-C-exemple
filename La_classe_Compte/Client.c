@@ -1,5 +1,5 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 #include "Client.h"
@@ -44,6 +44,11 @@ static void Client_Init(Client *This)
     This->set_nom=set_nom;
     This->set_prenom=set_prenom;
     This->set_tel=set_tel;
+
+    This->CIN=NULL;
+    This->nom=NULL;
+    This->prenom=NULL;
+    This->tel=NULL;
 }
 
 /******************************************************************************/
@@ -55,7 +60,8 @@ static char* get_CIN(Client *This)
 /******************************************************************************/
 static int set_CIN(Client *This,const char* CIN)
 {
-       This->CIN = malloc(sizeof(CIN));
+       if(This->CIN!=NULL) free(This->CIN);
+       This->CIN = malloc(sizeof(char)*(strlen(CIN)+1));
        strcpy(This->CIN,CIN);
        return 1;
 }
@@ -69,7 +75,8 @@ static char* get_nom(Client *This)
 /******************************************************************************/
 static int set_nom(Client *This,const char* nom)
 {
-       This->nom = malloc(sizeof(nom));
+       if(This->nom!=NULL) free(This->nom);
+       This->nom = malloc(sizeof(char)*(strlen(nom)+1));
        strcpy(This->nom,nom);
        return 1;
 }
@@ -83,7 +90,8 @@ static char* get_prenom(Client *This)
 /******************************************************************************/
 static int set_prenom(Client *This,const char* prenom)
 {
-       This->prenom = malloc(sizeof(prenom));
+       if(This->prenom!=NULL) free(This->prenom);
+       This->prenom = malloc(sizeof(char)*(strlen(prenom)+1));
        strcpy(This->prenom,prenom);
        return 1;
 }
@@ -97,7 +105,8 @@ static char* get_tel(Client *This)
 /******************************************************************************/
 static int set_tel(Client *This,const char* tel)
 {
-       This->tel = malloc(sizeof(tel));
+       if(This->tel!=NULL) free(This->tel);
+       This->tel = malloc(sizeof(char)*(strlen(tel)+1));
        strcpy(This->tel,tel);
        return 1;
 }
@@ -105,11 +114,12 @@ static int set_tel(Client *This,const char* tel)
 /******************************************************************************/
 static char* afficher( Client *This)
 {
-       size_t size = sizeof(This->get_CIN(This)) 
-                        + sizeof(This->get_nom(This)) 
-                        + sizeof(This->get_prenom(This)) 
-                        + sizeof(This->get_tel(This)) 
-                        + sizeof(char)*50;
+       size_t size = ( strlen(This->get_CIN(This)) 
+                     + strlen(This->get_nom(This)) 
+                     + strlen(This->get_prenom(This)) 
+                     + strlen(This->get_tel(This)) 
+                     + 50
+                     + sizeof(char);
 
        char* string = (char*)malloc(size);
        

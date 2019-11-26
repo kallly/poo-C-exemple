@@ -1,6 +1,7 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <stdarg.h>
+#include <string.h>
 
 #include "Compte.h"
 
@@ -8,18 +9,6 @@
 
 static void Compte_Init(Compte*);
 
-/*
-static float get_solde(Compte *This);
-static int set_solde(Compte *This,float solde);
-static int get_id(Compte *This);
-static int set_id(Compte *This,int id);
-static Client* get_client(Compte *This);
-static int set_client(Compte *This,Client *client);
-
-static char* toString( Compte *This);
-static int crediter(Compte *This,float val,int nbarg,...);
-static int debiter(Compte *This,float val,int nbarg,...);
-*/
 
 /******************************************************************************/
 Compte* New_Compte(char *CIN,char *nom,char *prenom,char *tel,size_t nbarg,...)
@@ -131,7 +120,7 @@ int Compte_debiter(Compte *This,float val,int nbarg,...)
 /******************************************************************************/
 char* toString( Compte *This)
 {
-       size_t size = sizeof(This->get_client(This)->afficher(This->get_client(This))) + sizeof(char)*150;
+       size_t size = (strlen(This->get_client(This)->afficher(This->get_client(This))) + 1 + 150 )* sizeof(char);
        char* string = (char*)malloc(size);
        
        snprintf(string, size, "Numéro de Compte: %d\nSolde de compte: %0.2f\nPropriétaire du compte:\n%s",

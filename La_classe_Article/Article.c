@@ -44,6 +44,8 @@ static void Article_Init(Article *This)
     This->set_deignation=set_designation;
     This->set_prixHT=set_prixHT;
     This->set_tauxTVA=set_tauxTVA;
+
+    This->designation=NULL;
 }
 
 /******************************************************************************/
@@ -68,8 +70,8 @@ static char* get_designation(Article *This)
 /******************************************************************************/
 static int set_designation(Article *This,const char *designation)
 {
-       This->designation = malloc(sizeof(designation));
-       strcpy(This->designation,designation);
+       if(This->designation!=NULL) free(This->designation);
+       This->designation = malloc(sizeof(char)*(strlen(designation)+1));
        return 1;
 }
 
@@ -108,7 +110,7 @@ static float calculerPrixTTC(Article *This)
 /******************************************************************************/
 static char* afficherArticle( Article *This)
 {
-       size_t size = sizeof(This->get_deignation(This)) + sizeof(char)*100;
+       size_t size = (strlen(This->get_deignation(This)) + 1 + 100)* sizeof(char);
        char* string = (char*)malloc(size);
        
        snprintf(string, size,
